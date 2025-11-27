@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1: Сбор данных формы</title>
+</head>
+<body>
+    <h2>Форма регистрации студента</h2>
+    <form id="studentForm">
+        <div>
+            <label for="firstName">Имя (обязательно):</label>
+            <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div>
+            <label for="lastName">Фамилия (обязательно):</label>
+            <input type="text" id="lastName" name="lastName" required>
+        </div>
+        <div>
+            <label for="groupNumber">Номер группы (обязательно):</label>
+            <input type="text" id="groupNumber" name="groupNumber" required>
+        </div>
+        <div>
+            <label for="course">Курс (обязательно):</label>
+            <input type="number" id="course" name="course" required min="1" max="6">
+        </div>
+        <button type="submit">Отправить данные</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

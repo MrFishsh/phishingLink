@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 3: Анимация вращающихся кругов</title>
+    <style>
+        /* Стили CSS */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        /* Контейнер для всех кругов и центральной точки */
+        .rotation-center {
+            position: relative;
+            width: 100px; /* Размер центральной области */
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer; /* Указываем, что область интерактивна */
+        }
+
+        /* Центральная точка, вокруг которой вращаются круги */
+        .center-dot {
+            width: 20px;
+            height: 20px;
+            background-color: #333;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 10; /* Для лучшей видимости при наложении */
+        }
+        
+        /* Ключевые кадры для вращения [cite: 23] */
+        @keyframes orbit {
+            from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+        }
+
+        /* Общие стили для вращающихся кругов */
+        .circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            position: absolute;
+            /* Применяем анимацию [cite: 23] */
+            animation: orbit 4s linear infinite; 
+        }
+
+        /* Индивидуальные настройки для каждого круга */
+        .circle:nth-child(1) {
+            background-color: #ff5722; 
+            animation-duration: 4s; /* Скорость 1 */
+            z-index: 5;
+        }
+        
+        .circle:nth-child(2) {
+            background-color: #4CAF50; 
+            animation-duration: 5s; /* Скорость 2 */
+            animation-delay: -1s; /* Смещение начала */
+        }
+
+        .circle:nth-child(3) {
+            background-color: #2196F3; 
+            animation-duration: 6s; /* Скорость 3 */
+            animation-delay: -2s; /* Смещение начала */
+        }
+        
+        /* Состояние паузы при наведении курсора на родительский элемент (.rotation-center) */
+        /* Применяем псевдо-класс :hover [cite: 17] */
+        .rotation-center:hover .circle {
+            animation-play-state: paused;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="rotation-center">
+        <div class="center-dot"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+</body>
+</html>
